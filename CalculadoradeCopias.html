@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Cópias - SofTech Serviços e Tecnologia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Styles/main.css">
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Gerador de Orçamentos.html">Gerador de Orçamentos</a></li>
+      <li><a href="CalculadoradeCopias.html" class="active">Calculadora de Cópias</a></li>
+      <li><a href="CatalogoDeServicos.html">Catálogo de Serviços</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <img src="Logotipo em GIF.gif" alt="Logo da SofTech">
+    <h1>Calculadora de Cópias - SofTech Serviços e Tecnologia</h1>
+  </header>
+
+  <main>
+    <!-- Container para os dados do cliente -->
+    <section class="cliente-info-container">
+      <h2>Dados do Cliente</h2>
+      <form id="formOrcamento">
+        <label for="cliente">Cliente:</label>
+        <input type="text" id="cliente" name="cliente" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone">
+      </form>
+    </section>
+
+    <!-- Container para os serviços -->
+    <section class="catalogo-container">
+      <h2>Serviços Disponíveis</h2>
+      <table id="tabelaServicos">
+        <thead>
+          <tr>
+            <th>Serviço</th>
+            <th>Valor Unitário (R$)</th>
+            <th class="col-quantidade">Qtd</th>
+            <th>Total do Serviço (R$)</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <select class="servico-select">
+                <!-- As opções serão populadas dinamicamente pelo JavaScript -->
+              </select>
+            </td>
+            <td><input type="number" class="valor-unitario" step="0.01" min="0" readonly></td>
+            <td><input type="number" class="quantidade" min="1" step="1" value="1"></td>
+            <td class="total-servico">0.00</td>
+            <td><button type="button" class="remover-linha-btn btn btn-danger btn-sm">Remover</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="buttons">
+        <button type="button" id="adicionarServicoBtn" class="btn btn-secondary">Adicionar Serviço</button>
+        <button type="button" id="removerTodosServicosBtn" class="btn btn-danger">Remover Todos os Serviços</button>
+        <button type="button" id="gerarPDFBtn" class="btn btn-secondary">Gerar PDF</button>
+        <button type="button" id="salvarOrcamentoBtn" class="btn btn-secondary">Salvar Orçamento</button>
+        <button type="button" id="exportarCSVBtn" class="btn btn-secondary">Exportar CSV</button>
+        <button type="submit" class="btn btn-primary">Enviar Orçamento</button>
+        <button type="button" id="enviarWhatsappBtn" class="btn btn-success">Enviar via WhatsApp</button>
+      </div>
+
+      <div class="total-container"><span id="valorFinal">Total do Orçamento: R$ 0.00</span></div>
+    </section>
+
+    <!-- Container para os orçamentos salvos -->
+    <section id="listaOrcamentosSalvos" class="orcamentos-salvos-container">
+      <h2>Orçamentos Salvos</h2>
+      <ul id="orcamentosSalvosLista">
+        <!-- Os orçamentos serão inseridos dinamicamente pelo JavaScript -->
+      </ul>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="Scripts/scriptCopias.js"></script>
+</body>
+</html>

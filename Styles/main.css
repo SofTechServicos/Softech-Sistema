@@ -1,0 +1,591 @@
+/* Variáveis Globais CSS */
+:root {
+  /* Cores */
+  --cor-primaria: #1a73e8;
+  --cor-texto-principal: #333;
+  --cor-texto-secundario: #111;
+  --cor-texto-muted: #777;
+  --cor-texto-branco: #fff;
+  --cor-fundo-container: #fff;
+  --cor-fundo-item-lista: #f6f9fb;
+  --cor-fundo-pagina: #f0f2f5;
+  --cor-borda-padrao: #ccc;
+  --cor-borda-input-foco: var(--cor-primaria);
+  --cor-botao-padrao-fundo: #555;
+  --cor-botao-padrao-fundo-hover: #333;
+  --cor-botao-excluir-fundo: #d9534f;
+  --cor-botao-excluir-fundo-hover: #c9302c;
+  --cor-botao-success-fundo: #28a745;
+  --cor-botao-success-fundo-hover: #218838;
+  --cor-fundo-readonly: #f8f9fa;
+
+  /* Sombras */
+  --sombra-container: 0 4px 24px rgba(0, 0, 0, 0.12);
+  --sombra-item-lista: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --sombra-botao-hover: 0 2px 8px rgba(0,0,0,0.1);
+
+  /* Bordas */
+  --borda-raio-container: 12px;
+  --borda-raio-item: 7px;
+  --borda-raio-botao: 5px;
+
+  /* Tipografia */
+  --fonte-principal: 'Roboto', sans-serif; /* Assumindo que Roboto está carregado */
+  --tamanho-fonte-base: 1rem;
+  --tamanho-fonte-titulo-secao: 1.2rem;
+  --tamanho-fonte-botao: 0.95rem;
+  --tamanho-fonte-meta: 0.9em;
+  --peso-fonte-bold: 700;
+  --peso-fonte-medium: 500;
+
+  /* Layout */
+  --max-width-container: 700px;
+}
+
+/* Estilos Globais Básicos */
+body {
+  font-family: var(--fonte-principal);
+  color: var(--cor-texto-principal);
+  line-height: 1.6;
+  margin: 20px; /* Aumente as margens aqui */
+  background-color: var(--cor-fundo-pagina);
+}
+
+/* Estilos da Navegação */
+nav {
+  background-color: var(--cor-texto-secundario);
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 1rem;
+}
+
+nav a {
+  color: var(--cor-texto-branco);
+  text-decoration: none;
+  font-weight: var(--peso-fonte-medium);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--borda-raio-botao);
+  transition: background-color 0.2s ease-in-out;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: var(--cor-primaria);
+}
+
+/* Estilos do Cabeçalho */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: var(--cor-fundo-container);
+  margin: 1rem auto;
+  max-width: calc(var(--max-width-container) + 4rem); /* Ajustar para alinhar com container principal */
+  border-radius: var(--borda-raio-container);
+  box-shadow: var(--sombra-container);
+}
+
+header img {
+  max-height: 60px;
+  margin-right: 1.5rem;
+}
+
+header h1 {
+  color: var(--cor-primaria);
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: var(--peso-fonte-bold);
+}
+
+/* Estilos de Formulário Globais */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: var(--peso-fonte-medium);
+  color: var(--cor-texto-secundario);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+  width: 70%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--cor-borda-padrao);
+  border-radius: var(--borda-raio-botao);
+  box-sizing: border-box;
+  font-size: var(--tamanho-fonte-base);
+  font-family: var(--fonte-principal);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--cor-borda-input-foco);
+  box-shadow: 0 0 0 0.2rem rgba(26, 115, 232, 0.25); /* cor-primaria em RGB */
+  outline: none;
+}
+
+input[readonly], textarea[readonly] {
+  background-color: var(--cor-fundo-readonly);
+  cursor: not-allowed;
+}
+
+/* Container para centralizar as informações do cliente */
+.cliente-info-container {
+  max-width: 500px; /* Defina a largura máxima desejada para esta seção. Pode ser ajustado. */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem; /* Espaçamento antes da tabela de serviços */
+  /* padding: 1rem; */ /* Opcional: para adicionar um espaçamento interno se desejar */
+  /* background-color: #f0f0f0; */ /* Opcional: para visualização da área do container durante o desenvolvimento */
+}
+
+/* Ajusta a largura dos inputs dentro do container de informações do cliente */
+.cliente-info-container #cliente,
+.cliente-info-container #email,
+.cliente-info-container #telefone {
+  width: 100%; /* Fazem os inputs ocuparem 100% da largura do .cliente-info-container */
+}
+
+/* Estilos para a seção de Orçamentos Salvos */
+.orcamentos-salvos-container {
+  background: var(--cor-fundo-container);
+  max-width: var(--max-width-container);
+  margin: 2rem auto 0; /* Centraliza e adiciona margem superior */
+  padding: 2rem;
+  border-radius: var(--borda-raio-container);
+  box-shadow: var(--sombra-container);
+}
+
+.orcamentos-salvos-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.orcamentos-salvos-container h3 {
+  color: var(--cor-primaria);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: var(--tamanho-fonte-titulo-secao);
+  font-weight: var(--peso-fonte-bold);
+  /* letter-spacing: 1px; /* Removido para um visual mais padrão */
+}
+
+.orcamentos-salvos-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--cor-fundo-item-lista);
+  border-radius: var(--borda-raio-item);
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  box-shadow: var(--sombra-item-lista);
+  font-size: var(--tamanho-fonte-base);
+}
+
+.orcamentos-salvos-info {
+  flex: 1;
+  color: var(--cor-texto-principal);
+}
+
+.orcamentos-salvos-info b {
+  color: var(--cor-texto-secundario);
+  font-weight: var(--peso-fonte-bold); /* Garante que o negrito seja aplicado */
+}
+
+/* Use esta classe no span que contém a data/total, em vez de estilo inline */
+.orcamento-meta-info {
+  color: var(--cor-texto-muted);
+  font-size: var(--tamanho-fonte-meta);
+  margin-left: 10px; /* Ou use uma variável de espaçamento */
+}
+
+.orcamentos-salvos-btns {
+  display: flex;
+  gap: 8px; /* Espaçamento entre botões */
+}
+
+/* Os botões dentro de .orcamentos-salvos-btns usarão .btn e .btn-sm */
+/* .orcamentos-salvos-btns button { ... } não é mais necessário se usarmos classes .btn */
+
+.orcamentos-salvos-vazio {
+  color: var(--cor-texto-muted);
+  text-align: center;
+  margin: 1.5rem 0 0 0;
+  padding: 1rem;
+  font-style: italic;
+}
+
+/* Estilos da Tabela de Serviços */
+#tabelaServicos {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  border-collapse: collapse;
+}
+
+#tabelaServicos th,
+#tabelaServicos td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+#tabelaServicos th {
+  background-color: var(--cor-fundo-item-lista);
+  color: var(--cor-texto-secundario);
+  font-weight: var(--peso-fonte-bold);
+}
+
+#tabelaServicos td .quantidade {
+  width: 70px; /* Ajuste conforme necessário */
+}
+#tabelaServicos td .valor-unitario {
+  width: 100px; /* Ajuste conforme necessário */
+}
+
+.total-servico {
+  font-weight: var(--peso-fonte-bold);
+}
+
+.descricao-row td {
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+  border-left: none; /* Opcional: para remover bordas laterais da célula de descrição */
+  border-right: none;
+}
+
+.descricao-servico {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #eee;
+  border-radius: var(--borda-raio-botao);
+  box-sizing: border-box;
+  min-height: 60px;
+  resize: vertical;
+}
+
+/* Estilos para Botões Gerais */
+.btn {
+  padding: 0.65rem 1.25rem;
+  border: none;
+  border-radius: var(--borda-raio-botao);
+  cursor: pointer;
+  font-size: var(--tamanho-fonte-botao);
+  font-weight: var(--peso-fonte-medium);
+  transition: background-color 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  line-height: 1.5; /* Para alinhar texto verticalmente */
+}
+
+.btn:hover, .btn:focus {
+  box-shadow: var(--sombra-botao-hover);
+  outline: none;
+}
+
+.btn-primary {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-branco);
+}
+.btn-primary:hover { background-color: #1366cf; } /* Darken primary */
+
+.btn-secondary {
+  background-color: var(--cor-botao-padrao-fundo);
+  color: var(--cor-texto-branco);
+}
+.btn-secondary:hover { background-color: var(--cor-botao-padrao-fundo-hover); }
+
+.btn-danger {
+  background-color: var(--cor-botao-excluir-fundo);
+  color: var(--cor-texto-branco);
+}
+.btn-danger:hover { background-color: var(--cor-botao-excluir-fundo-hover); }
+
+.btn-success {
+  background-color: var(--cor-botao-success-fundo);
+  color: var(--cor-texto-branco);
+}
+.btn-success:hover { background-color: var(--cor-botao-success-fundo-hover); }
+
+.btn-sm {
+  padding: 0.35rem 0.85rem;
+  font-size: 0.875rem;
+}
+
+/* Container de Botões do Formulário Principal */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start; /* Ou center/flex-end conforme preferência */
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Container do Valor Total */
+.total-container {
+  text-align: right;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#valorFinal {
+  font-size: 1.8rem;
+  font-weight: var(--peso-fonte-bold);
+  color: var(--cor-primaria);
+}
+
+/* Animação para novas linhas */
+@keyframes highlightAnimation {
+  from { background-color: #e6f7ff; } /* Um azul claro suave */
+  to { background-color: transparent; }
+}
+
+.highlight-new-row {
+  animation: highlightAnimation 0.7s ease-out;
+}
+
+/* Ajuste para coluna de quantidade na tabela */
+.col-quantidade {
+    width: 100px; /* Ou outro valor que funcione bem */
+}
+
+/* Ajuste para a caixa de seleção de serviços */
+.servico-select {
+  width: 100%; /* Faz a caixa ocupar toda a largura da célula */
+  white-space: normal; /* Permite quebra de texto para serviços longos */
+  overflow-wrap: break-word; /* Garante que palavras longas sejam quebradas */
+}
+
+/* Estilos para o catálogo */
+.catalogo-container {
+  max-width: var(--max-width-container);
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajusta o tamanho das colunas */
+  gap: 15px; /* Espaçamento entre os itens */
+  padding: 20px;
+}
+
+.catalogo-item {
+  border: 1px solid #ccc; /* Borda ao redor de cada item */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 10px; /* Espaçamento interno */
+  text-align: center; /* Centraliza o texto */
+  background-color: #f9f9f9; /* Fundo claro */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+.catalogo-item img {
+  max-width: 100%; /* Ajusta a largura da imagem */
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 5px; /* Bordas arredondadas na imagem */
+}
+
+.catalogo-item h3 {
+  font-size: 16px; /* Reduz o tamanho do título */
+  margin: 10px 0 5px; /* Espaçamento ao redor do título */
+}
+
+.catalogo-item p {
+  font-size: 14px; /* Reduz o tamanho da descrição */
+  color: #555; /* Cor do texto */
+  margin-bottom: 10px; /* Espaçamento abaixo da descrição */
+}
+
+.catalogo-item span {
+  font-size: 14px; /* Reduz o tamanho do preço */
+  font-weight: bold; /* Destaca o preço */
+  color: #333; /* Cor do texto */
+}
+
+/* Estilos para o Dashboard */
+.dashboard-container {
+  max-width: var(--max-width-container);
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.dashboard-item {
+  text-decoration: none;
+  color: var(--cor-texto-principal);
+  background-color: var(--cor-fundo-item-lista);
+  border: 1px solid #ccc;
+  border-radius: var(--borda-raio-item);
+  padding: 15px;
+  text-align: center;
+  box-shadow: var(--sombra-item-lista);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-item img {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.dashboard-item h3 {
+  font-size: 1rem;
+  font-weight: var(--peso-fonte-bold);
+}
+
+/* Estilos para a seção de Estatísticas */
+.statistics-container {
+  max-width: var(--max-width-container);
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.chart-container {
+  margin: 1rem auto;
+  max-width: 300px; /* Define um tamanho pequeno para os gráficos */
+  height: 200px; /* Altura relativa pequena */
+}
+
+/* Estilos do Chatbot */
+#chatbot-container {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 320px;
+    height: 400px;
+    background-color: var(--cor-fundo-container);
+    border-radius: var(--borda-raio-container);
+    box-shadow: var(--sombra-container);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: 999;
+}
+
+#chat-header {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-branco);
+    padding: 10px;
+    font-weight: var(--peso-fonte-bold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+}
+
+.chatbot-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.chatbot-control-btn {
+    width: 22px;
+    height: 22px;
+    border: none;
+    border-radius: 50%;
+    background: var(--cor-botao-padrao-fundo);
+    color: var(--cor-texto-branco);
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.chatbot-control-btn:hover {
+    background-color: var(--cor-botao-padrao-fundo-hover);
+}
+
+#chat-body {
+    padding: 10px;
+    overflow-y: auto;
+    height: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#chat-input-container {
+    display: flex;
+    padding: 10px;
+    background-color: var(--cor-fundo-item-lista);
+    border-top: 1px solid var(--cor-borda-padrao);
+}
+
+#chat-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--cor-borda-padrao);
+    border-radius: var(--borda-raio-botao);
+}
+
+#send-btn {
+    margin-left: 10px;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-branco);
+    border: none;
+    border-radius: var(--borda-raio-botao);
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#send-btn:hover {
+    background-color: #1366cf;
+}
+
+/* Animações */
+#chatbot-container.minimized {
+    height: 50px;
+    width: 200px;
+    transition: all 0.3s ease-in-out;
+}
+
+#chatbot-container.maximized {
+    width: 400px;
+    height: 600px;
+    transition: all 0.3s ease-in-out;
+}
+
+#chatbot-container.closed {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease-in-out;
+}

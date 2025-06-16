@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SofTech Serviços e Tecnologia - Home</title>
+    
+    <!-- Caminhos de CSS corrigidos -->
+    <link rel="stylesheet" href="/Styles/main.css">
+    <link rel="stylesheet" href="/chatbot-gemini/style.css">
+
+    <style>
+      /* Seus estilos para os controles do chat estão perfeitos */
+      .chatbot-controls {
+        display: flex;
+        gap: 6px;
+        position: absolute;
+        right: 10px;
+        top: 8px;
+      }
+      .chatbot-control-btn {
+        width: 22px;
+        height: 22px;
+        border: none;
+        border-radius: 50%;
+        background: #eee;
+        color: #333;
+        cursor: pointer;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+      }
+      .chatbot-control-btn:hover {
+        background: #ccc;
+      }
+      #chatbot-container.minimized #chat-body,
+      #chatbot-container.minimized #chat-input-container {
+        display: none;
+      }
+      #chatbot-container.maximized {
+        width: 400px !important;
+        height: 600px !important;
+        right: 30px !important;
+        bottom: 30px !important;
+        z-index: 9999;
+      }
+      #chatbot-container.closed {
+        display: none !important;
+      }
+      #chatbot-container {
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        width: 320px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+        z-index: 999;
+      }
+      #chat-reopen-icon {
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        cursor: pointer;
+        display: none; /* Começa escondido */
+        z-index: 9998;
+        background-color: #007bff;
+        color: white;
+        border-radius: 50%;
+        padding: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      }
+    </style>
+</head>
+
+<body>
+    <nav>
+      <ul>
+        <!-- Caminhos de navegação corrigidos -->
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/Gerador de Orçamentos.html">Gerador de Orçamentos</a></li>
+        <li><a href="/CalculadoradeCopias.html">Calculadora de Cópias</a></li>
+        <li><a href="/CatalogoDeServicos.html">Catálogo de Serviços</a></li>
+      </ul>
+    </nav>
+
+    <header>
+        <!-- Caminho da imagem corrigido -->
+        <img src="/Logotipo em GIF.gif" alt="Logo da SofTech">
+        <h1>Bem-vindo à SofTech Serviços e Tecnologia</h1>
+    </header>
+
+    <main>
+        <section class="dashboard-container">
+            <div class="dashboard-grid">
+                <!-- Caminhos dos links e imagens corrigidos -->
+                <a href="/Gerador de Orçamentos.html" class="dashboard-item">
+                    <img src="/imagens/gerador-orcamentos.png" alt="Gerador de Orçamentos">
+                    <h3>Gerador de Orçamentos</h3>
+                </a>
+                <a href="/CalculadoradeCopias.html" class="dashboard-item">
+                    <img src="/imagens/calculadora-copias.png" alt="Calculadora de Cópias">
+                    <h3>Calculadora de Cópias</h3>
+                </a>
+                <a href="/CatalogoDeServicos.html" class="dashboard-item">
+                    <img src="/imagens/catalogo-servicos.png" alt="Catálogo de Serviços">
+                    <h3>Catálogo de Serviços</h3>
+                </a>
+            </div>
+        </section>
+        <section style="text-align:center; margin-top:2rem;">
+            <p>Conheça nossas soluções inovadoras em tecnologia, impressão, suporte e muito mais!</p>
+        </section>
+
+        <!-- Bloco do Chatbot -->
+        <div id="chatbot-container">
+            <div id="chat-header">
+                Assistente Virtual SofTech
+                <div class="chatbot-controls">
+                    <button class="chatbot-control-btn" id="chat-min-btn" title="Minimizar">–</button>
+                    <button class="chatbot-control-btn" id="chat-max-btn" title="Maximizar">☐</button>
+                    <button class="chatbot-control-btn" id="chat-close-btn" title="Fechar">×</button>
+                </div>
+            </div>
+            <div id="chat-body">
+                <div class="message bot">
+                    Olá! Sou o assistente da SofTech. Como posso te ajudar com nossos serviços?
+                </div>
+            </div>
+            <div id="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Digite sua mensagem..." autocomplete="off">
+                <button id="send-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Ícone para reabrir o chat -->
+        <div id="chat-reopen-icon" title="Abrir Chat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 SofTech Serviços e Tecnologia.</p>
+    </footer>
+
+    <!-- Scripts carregados no final para melhor performance -->
+    
+    <!-- *** CORREÇÃO FINAL: INCLUSÃO DO SEU SCRIPT PRINCIPAL DO SITE *** -->
+    <script src="/Scripts/script.js" defer></script>
+    
+    <!-- Script do Chatbot -->
+    <script src="/chatbot-gemini/script.js" defer></script>
+
+    <!-- Script para os controles da janela do chatbot -->
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatbot = document.getElementById('chatbot-container');
+            const chatMinBtn = document.getElementById('chat-min-btn');
+            const chatMaxBtn = document.getElementById('chat-max-btn');
+            const chatCloseBtn = document.getElementById('chat-close-btn');
+            const chatReopenIcon = document.getElementById('chat-reopen-icon');
+
+            if (chatMinBtn) {
+                chatMinBtn.onclick = () => {
+                    chatbot.classList.toggle('minimized');
+                    chatbot.classList.remove('maximized');
+                };
+            }
+
+            if (chatMaxBtn) {
+                chatMaxBtn.onclick = () => {
+                    chatbot.classList.toggle('maximized');
+                    chatbot.classList.remove('minimized');
+                };
+            }
+            
+            if (chatCloseBtn) {
+                chatCloseBtn.onclick = () => {
+                    chatbot.classList.add('closed');
+                    chatReopenIcon.style.display = 'block';
+                };
+            }
+
+            if (chatReopenIcon) {
+                chatReopenIcon.onclick = () => {
+                    chatbot.classList.remove('closed');
+                    chatReopenIcon.style.display = 'none';
+                };
+            }
+        });
+    </script>
+</body>
+</html>

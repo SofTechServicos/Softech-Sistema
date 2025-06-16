@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orçamento - SofTech Serviços e Tecnologia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Styles/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+  <nav>
+  <ul>
+    <li><a href="Home.html">Home</a></li>
+    <li><a href="Gerador de Orçamentos.html" class="active">Gerador de Orçamentos</a></li>
+    <li><a href="CalculadoradeCopias.html">Calculadora de Cópias</a></li>
+    <li><a href="CatalogoDeServicos.html">Catálogo de Serviços</a></li>
+  </ul>
+</nav>
+
+  <header>
+    <img src="Logotipo em GIF.gif" alt="Logo da SofTech">
+    <h1>Orçamento - SofTech Serviços e Tecnologia</h1>
+  </header>
+
+  <form id="formOrcamento">
+    <!-- Container para as informações do cliente -->
+    <div class="cliente-info-container">
+      <label for="cliente">Cliente:</label>
+      <input type="text" id="cliente" name="cliente" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone">
+    </div>
+    <!-- Fim do container das informações do cliente -->
+
+    <table id="tabelaServicos">
+      <thead>
+        <tr>
+          <th>Serviço</th>
+          <th class="col-quantidade">Quantidade</th>
+          <th>Valor Unitário</th>
+          <th>Total</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <select class="servico-select">
+              <!-- Os serviços serão populados dinamicamente -->
+            </select>
+          </td>
+          <td>
+            <input type="number" class="quantidade" min="1" value="1">
+          </td>
+          <td>
+            <input type="number" class="valor-unitario" min="0" step="0.01" value="0.00" readonly>
+          </td>
+          <td class="total-servico">0.00</td>
+          <td>
+            <button type="button" class="remover-servico btn btn-danger btn-sm">Remover</button>
+          </td>
+        </tr>
+        <tr class="descricao-row">
+          <td colspan="5">
+            <textarea class="descricao-servico" placeholder="Descrição adicional para este serviço"></textarea>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total-container">
+      <span id="valorFinal">Valor Total: R$ 0,00</span>
+    </div>
+
+    <div class="buttons">
+      <button type="button" id="adicionarServicoBtn" class="btn btn-secondary">Adicionar Serviço</button>
+      <button type="button" id="removerTodosServicosBtn" class="btn btn-danger">Remover Todos os Serviços</button>
+      <button type="button" id="gerarPDFBtn" class="btn btn-secondary">Gerar PDF</button>
+      <button type="button" id="salvarOrcamentoBtn" class="btn btn-secondary">Salvar Orçamento</button>
+      <button type="button" id="exportarCSVBtn" class="btn btn-secondary">Exportar CSV</button>
+      <button type="submit" class="btn btn-primary">Enviar Orçamento</button>
+      <button type="button" id="enviarWhatsappBtn" class="btn btn-success">Enviar via WhatsApp</button>
+    </div>
+  </form>
+
+  <div id="listaOrcamentosSalvos" class="orcamentos-salvos-container">
+    <!-- O botão de apagar tudo e a lista de orçamentos serão inseridos aqui pelo JavaScript -->
+    <!-- Conteúdo dos orçamentos salvos será inserido aqui pelo JavaScript -->
+  </div>
+  <div class="rascunhos-container">
+    <!-- Conteúdo dos rascunhos pode ser adicionado aqui -->
+  </div>
+
+  <script src="Scripts/script.js"></script>
+  <script>
+    // Verifica se o navegador suporta o armazenamento local
+    if (typeof(Storage) === "undefined") {
+      alert("Seu navegador não suporta armazenamento local. Algumas funcionalidades podem não funcionar corretamente.");
+    }
+    // Verifica se o navegador suporta o recurso de download de arquivos
+    if (typeof(Blob) === "undefined" || typeof(URL) === "undefined") {
+      alert("Seu navegador não suporta o recurso de download de arquivos. Algumas funcionalidades podem não funcionar corretamente.");
+    }
+        // Verifica se o navegador suporta o recurso de envio de mensagens via WhatsApp
+    if (typeof(window.open) === "undefined") {
+      alert("Seu navegador não suporta o envio de mensagens via WhatsApp. Algumas funcionalidades podem não funcionar corretamente.");
+    }
+    // Verifica se o navegador suporta o recurso de manipulação de tabelas
+    if (typeof(window.HTMLTableElement) === "undefined") {
+      alert("Seu navegador não suporta a manipulação de tabelas. Algumas funcionalidades podem não funcionar corretamente.");
+    }
+    // Verifica se o navegador suporta o recurso de manipulação de formulários
+    if (typeof(window.HTMLFormElement) === "undefined") {
+      alert("Seu navegador não suporta a manipulação de formulários. Algumas funcionalidades podem não funcionar corretamente.");
+    }
+    // Verifica se o navegador suporta o recurso de manipulação de eventos de teclado e mouse
+    if (typeof(window.addEventListener) === "undefined") {
+      alert("Seu navegador não suporta a manipulação de eventos de teclado ou mouse. Algumas funcionalidades podem não funcionar corretamente.");
+    }
+    // Verifica se o navegador suporta o recurso de manipulação de eventos de mudança
+    // (adicione aqui a verificação se necessário)
+  </script>
+</body>
+</html>
