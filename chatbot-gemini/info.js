@@ -6,35 +6,141 @@ module.exports = {
     whatsapp: "https://wa.me/5593981154627"
   },
   servicos: [
-    // ... (toda a sua lista de serviços permanece exatamente igual, não precisa mexer aqui)
-    // === Categoria: Suporte Técnico e Manutenção de Computadores ===
-    { nome: "Instalação de sistema operacional (Windows, Linux)", valor: 250.00, descricao: "Instalação limpa e configuração de sistemas operacionais, com drivers atualizados.", categoria: "suporte_tecnico" },
-    { nome: "Formatação de Computador (com Backup)", valor: 50.00, descricao: "Formatação completa, reinstalação do sistema e backup de até 10GB de arquivos.", categoria: "suporte_tecnico" },
-    { nome: "Limpeza Física Interna (PCs e Notebooks)", valor: 120.00, descricao: "Limpeza completa de componentes internos para prevenir superaquecimento e troca de pasta térmica.", categoria: "suporte_tecnico" },
-    { nome: "Remoção de Vírus e Malware", valor: 40.00, descricao: "Verificação completa do sistema, remoção de ameaças e instalação de proteção básica.", categoria: "suporte_tecnico" },
-    { nome: "Upgrades de Hardware (Instalação de RAM/SSD)", valor: 100.00, descricao: "Instalação de componentes como Memória RAM ou SSD (valor referente à mão de obra, peças não inclusas).", categoria: "suporte_tecnico" },
-    { nome: "Diagnóstico Avançado de Hardware", valor: 70.00, descricao: "Identificação precisa de componentes defeituosos. O valor é abatido no custo do conserto.", categoria: "suporte_tecnico" },
-    { nome: "Pacote 'PC Novo Pronto para Usar'", valor: 280.00, descricao: "Configuração completa para PCs novos: SO, drivers, antivírus e pacote de programas essenciais.", categoria: "suporte_tecnico" },
-    { nome: "Configuração de rede doméstica/pequena empresa", valor: 200.00, descricao: "Instalação e configuração de roteadores, repetidores e dispositivos em rede.", categoria: "suporte_tecnico" },
-    { nome: "Backup em nuvem (configuração e instrução)", valor: 80.00, descricao: "Configuração de rotina de backup automático e seguro em serviços de nuvem como Google Drive ou OneDrive.", categoria: "suporte_tecnico" },
-    // === Categoria: Desenvolvimento e Presença Digital ===
-    { nome: "Criação de sites simples para empresas/comércio local", valor: 300.00, descricao: "Desenvolvimento de sites institucionais responsivos com até 3 páginas (Ex: Home, Sobre, Contato).", categoria: "desenvolvimento_web" },
-    { nome: "Criação de landing pages promocionais", valor: 200.00, descricao: "Criação de página única focada em conversão para um produto, serviço ou evento específico.", categoria: "desenvolvimento_web" },
-    { nome: "Atualização/manutenção de site existente", valor: 150.00, descricao: "Serviço de atualização de conteúdo, plugins e correções de segurança em sites (valor por hora ou pacote).", categoria: "desenvolvimento_web" },
-    { nome: "Criação de contas profissionais (Google, e-mail, redes sociais)", valor: 50.00, descricao: "Criação e configuração inicial de perfis comerciais e e-mails profissionais.", categoria: "desenvolvimento_web" },
-    // === Categoria: Serviços Digitais e Consultoria ===
-    { nome: "Formatação de documentos (TCC, monografias, relatórios - Normas ABNT)", valor: 20.00, descricao: "Adequação profissional de trabalhos acadêmicos e corporativos às normas da ABNT (valor por hora).", categoria: "servicos_digitais" },
-    { nome: "Elaboração de currículo personalizado", valor: 15.00, descricao: "Criação ou modernização de currículos com design profissional e foco em resultados.", categoria: "servicos_digitais" },
-    { nome: "Elaboração de Contratos Simples", valor: 20.00, descricao: "Redação de contratos básicos para prestação de serviços, aluguel, etc.", categoria: "servicos_digitais" },
-    { nome: "Suporte técnico remoto (por sessão)", valor: 100.00, descricao: "Solução de problemas de software, configurações e dúvidas via acesso remoto.", categoria: "servicos_digitais" },
-    { nome: "Suporte em serviços públicos online (Gov.br, INSS, etc.)", valor: 10.00, descricao: "Auxílio para emissão de documentos, agendamentos e navegação em portais do governo.", categoria: "servicos_digitais" },
-    { nome: "Auxílio em serviços do Detran (emissão, agendamentos, etc.)", valor: 15.00, descricao: "Assistência para resolver pendências e realizar serviços online junto ao Detran.", categoria: "servicos_digitais" },
-    { nome: "Aulas Básicas de Informática (por hora)", valor: 50.00, descricao: "Aulas particulares para iniciantes sobre uso do computador, internet ou Pacote Office.", categoria: "servicos_digitais" },
-    { nome: "Consultoria para Compra de Equipamentos", valor: 60.00, descricao: "Análise de necessidades e indicação do PC, notebook ou periférico com melhor custo-benefício.", categoria: "servicos_digitais" },
-    { nome: "Licenciamento de software (auxílio e regularização)", valor: 300.00, descricao: "Consultoria e auxílio na aquisição de licenças de softwares para garantir a regularização.", categoria: "servicos_digitais" },
-    { nome: "Redação de documentos simples (declarações, requerimentos etc.)", valor: 10.00, descricao: "Criação rápida de textos para documentos do dia a dia.", categoria: "servicos_digitais" },
-    { nome: "Suporte Técnico", valor: 150.00, descricao: "Atendimento remoto para resolução de problemas em sistemas." },
-    { nome: "Desenvolvimento de Software", valor: 2000.00, descricao: "Criação de sistemas personalizados conforme a necessidade do cliente." }
+    // =========================================================================
+    // CATEGORIA: SERVIÇOS RÁPIDOS E ESSENCIAIS (FOCO: FLUXO DE CAIXA RÁPIDO)
+    // =========================================================================
+    { 
+        nome: "Auxílio em Serviços Públicos Online", 
+        valor: 35.00, 
+        descricao: "Assistência completa para agendamentos, emissão de certidões, documentos e navegação em portais do governo (Gov.br, INSS, Detran).", 
+        categoria: "servicos_essenciais" 
+    },
+    { 
+        nome: "Elaboração e Atualização de Currículo", 
+        valor: 45.00, 
+        descricao: "Criação de um currículo do zero ou modernização do atual, com layout profissional para destacar suas qualificações.", 
+        categoria: "servicos_essenciais" 
+    },
+    { 
+        nome: "Formatação de Trabalhos (Normas ABNT)", 
+        valor: 50.00, 
+        descricao: "Adequação profissional de trabalhos escolares e acadêmicos às normas da ABNT. Valor inicial para trabalhos de até 15 páginas.", 
+        categoria: "servicos_essenciais" 
+    },
+    { 
+        nome: "Criação de Documentos Simples", 
+        valor: 40.00, 
+        descricao: "Redação de declarações, requerimentos e contratos básicos (prestação de serviço, aluguel).", 
+        categoria: "servicos_essenciais" 
+    },
+    { 
+        nome: "Serviços de Escritório Digital", 
+        valor: 20.00, 
+        descricao: "Conversão de arquivos (Word, PDF, JPG), digitalização de documentos, criação de QR Codes e envio por e-mail.", 
+        categoria: "servicos_essenciais" 
+    },
+    
+    // =================================================================================
+    // CATEGORIA: SUPORTE TÉCNICO E MANUTENÇÃO (FOCO: CONSTRUÇÃO DE CONFIANÇA)
+    // =================================================================================
+    { 
+        nome: "Diagnóstico Técnico Completo", 
+        valor: 70.00, 
+        descricao: "Identificação precisa de problemas de hardware ou software. O valor é 100% abatido no custo do conserto, se aprovado.", 
+        categoria: "suporte_tecnico" 
+    },
+    { 
+        nome: "Formatação com Backup e Instalação de Programas", 
+        valor: 150.00, 
+        descricao: "Sistema reinstalado, otimizado, com backup seguro (até 20GB) e instalação do pacote de programas essenciais.", 
+        categoria: "suporte_tecnico" 
+    },
+    { 
+        nome: "Pacote de Otimização e Limpeza de Sistema", 
+        valor: 100.00, 
+        descricao: "Remoção de vírus/malwares, limpeza de arquivos, atualização de drivers e otimização geral para máxima performance.", 
+        categoria: "suporte_tecnico" 
+    },
+    { 
+        nome: "Limpeza Física Interna (PCs e Notebooks)", 
+        valor: 120.00, 
+        descricao: "Limpeza detalhada de componentes e troca de pasta térmica de alta qualidade para prevenir superaquecimento.", 
+        categoria: "suporte_tecnico" 
+    },
+    { 
+        nome: "Instalação de Componentes (Upgrade de Hardware)", 
+        valor: 80.00, 
+        descricao: "Mão de obra para instalação e configuração de Memória RAM, SSD, Fontes, etc. (Peças não inclusas).", 
+        categoria: "suporte_tecnico" 
+    },
+    { 
+        nome: "Suporte Técnico Remoto", 
+        valor: 80.00, 
+        descricao: "Solução de problemas de software, configurações e dúvidas via acesso remoto. (Cobrado por sessão de até 1h).", 
+        categoria: "suporte_tecnico" 
+    },
+    
+    // =================================================================================
+    // CATEGORIA: SOLUÇÕES PARA NEGÓCIOS (FOCO: AUMENTAR O TICKET MÉDIO)
+    // =================================================================================
+    { 
+        nome: "Pacote 'PC Novo Pronto para Trabalhar'", 
+        valor: 200.00, 
+        descricao: "Configuração completa de computadores novos: Sistema, drivers, antivírus, pacote Office e programas para seu negócio.", 
+        categoria: "solucoes_negocios" 
+    },
+    { 
+        nome: "Criação de Planilhas Personalizadas", 
+        valor: 120.00, 
+        descricao: "Desenvolvimento de planilhas inteligentes para controle financeiro, fluxo de caixa, estoque e gestão de clientes. (Valor a partir de).", 
+        categoria: "solucoes_negocios" 
+    },
+    { 
+        nome: "Configuração de Rotina de Backup em Nuvem", 
+        valor: 90.00, 
+        descricao: "Proteja seus dados! Implementação de rotina de backup automático e seguro no Google Drive ou OneDrive.", 
+        categoria: "solucoes_negocios" 
+    },
+    { 
+        nome: "Consultoria para Compra de Equipamentos", 
+        valor: 80.00, 
+        descricao: "Análise de suas necessidades para indicar o computador, notebook ou periférico com o melhor custo-benefício.", 
+        categoria: "solucoes_negocios" 
+    },
+
+    // ===================================================================================
+    // CATEGORIA: PRESENÇA DIGITAL E DESENVOLVIMENTO (FOCO: VENDA CRUZADA E LONGO PRAZO)
+    // ===================================================================================
+    { 
+        nome: "Pacote 'Presença Online Essencial'", 
+        valor: 150.00, 
+        descricao: "Criamos e configuramos seu Google Meu Negócio, perfil comercial no Instagram e e-mail profissional.", 
+        categoria: "presenca_digital" 
+    },
+    { 
+        nome: "Criação de Landing Page (Página de Vendas)", 
+        valor: 450.00, 
+        descricao: "Desenvolvimento de uma página única e otimizada para celular, focada em divulgar um produto, serviço ou evento. (Valor a partir de).", 
+        categoria: "presenca_digital" 
+    },
+    { 
+        nome: "Criação de Site Institucional", 
+        valor: 750.00, 
+        descricao: "Desenvolvimento de um site profissional com até 3 páginas (Início, Sobre, Contato) para apresentar sua empresa na internet. (Valor a partir de).", 
+        categoria: "presenca_digital" 
+    },
+    { 
+        nome: "Manutenção e Atualização de Site", 
+        valor: 100.00, 
+        descricao: "Serviço de atualização de conteúdo, correções de segurança e melhorias em sites existentes. (Valor por hora).", 
+        categoria: "presenca_digital" 
+    },
+    { 
+        nome: "Desenvolvimento de Software Sob Medida", 
+        valor: 5000.00, 
+        descricao: "Criação de sistemas e soluções personalizadas para otimizar processos complexos de empresas. (Valor sob orçamento).", 
+        categoria: "presenca_digital" 
+    }
   ],
   contexto: `
   Você é um assistente de triagem especialista da SofTech. Sua ÚNICA função é guiar o usuário por um menu de opções para identificar o serviço correto. Você NUNCA deve dar respostas longas ou diretas. Sua resposta DEVE sempre seguir o formato de um menu.
