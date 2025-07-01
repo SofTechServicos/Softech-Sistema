@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Administrativo - SofTech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Styles/main.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--cor-fundo-pagina);
+        }
+        .login-container {
+            padding: 2rem 3rem;
+            background-color: var(--cor-fundo-container);
+            border-radius: var(--borda-raio-container);
+            box-shadow: var(--sombra-container);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .login-container img {
+            max-width: 100px;
+            margin-bottom: 1.5rem;
+        }
+        .login-container h1 {
+            font-size: 1.5rem;
+            color: var(--cor-texto-secundario);
+            margin-bottom: 1.5rem;
+        }
+        .login-container input {
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+        .login-container .btn {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="../Logotipo em GIF.gif" alt="Logo SofTech">
+        <h1>Acesso Administrativo</h1>
+        <form id="loginForm">
+            <input type="password" id="password" placeholder="Senha de Acesso" required>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', handleLogin);
+    </script>
+</body>
+</html>

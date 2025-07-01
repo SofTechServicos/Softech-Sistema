@@ -382,48 +382,82 @@ input[readonly], textarea[readonly] {
 
 /* Estilos para o catálogo */
 .catalogo-container {
-  max-width: var(--max-width-container);
-  margin: 2rem auto;
-  padding: 1rem;
+    background-color: transparent;
+    padding: 40px 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.catalogo-container > h2 {
+    font-size: 1.8rem;
+    color: var(--cor-primaria);
+    margin-bottom: 30px;
+    padding-left: 20px;
+    text-align: left;
+    font-weight: var(--peso-fonte-bold);
 }
 
 .catalogo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajusta o tamanho das colunas */
-  gap: 15px; /* Espaçamento entre os itens */
-  padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .catalogo-item {
-  border: 1px solid #ccc; /* Borda ao redor de cada item */
-  border-radius: 8px; /* Bordas arredondadas */
-  padding: 10px; /* Espaçamento interno */
-  text-align: center; /* Centraliza o texto */
-  background-color: #f9f9f9; /* Fundo claro */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    display: flex;
+    flex-direction: column;
+    height: 420px; /* Altura ajustada */
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: var(--cor-fundo-container);
+    border-radius: var(--borda-raio-item);
+    box-shadow: var(--sombra-container);
+    overflow: hidden;
 }
 
-.catalogo-item img {
-  max-width: 100%; /* Ajusta a largura da imagem */
-  height: auto; /* Mantém a proporção da imagem */
-  border-radius: 5px; /* Bordas arredondadas na imagem */
+.catalogo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-.catalogo-item h3 {
-  font-size: 16px; /* Reduz o tamanho do título */
-  margin: 10px 0 5px; /* Espaçamento ao redor do título */
+.catalogo-imagem {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background-color: var(--cor-fundo-item-lista);
 }
 
-.catalogo-item p {
-  font-size: 14px; /* Reduz o tamanho da descrição */
-  color: #555; /* Cor do texto */
-  margin-bottom: 10px; /* Espaçamento abaixo da descrição */
+.catalogo-item-content {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-.catalogo-item span {
-  font-size: 14px; /* Reduz o tamanho do preço */
-  font-weight: bold; /* Destaca o preço */
-  color: #333; /* Cor do texto */
+.catalogo-item-content h3 {
+    font-size: 1.2rem;
+    color: var(--cor-texto-secundario);
+    margin: 0 0 0.75rem 0;
+    font-weight: var(--peso-fonte-bold);
+}
+
+.catalogo-item-content p {
+    font-size: 0.9rem;
+    color: var(--cor-texto-principal);
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+    line-height: 1.5;
+}
+
+.catalogo-item-content span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--cor-primaria);
+    margin-top: auto;
+    text-align: right;
 }
 
 /* Estilos para o Dashboard */

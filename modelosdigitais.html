@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="Logotipo em GIF.png">
+  <title>Modelos Digitais | SofTech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Styles/novo_layout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo-slider">
+      <a href="Home.html">
+        <img id="logo-slide" class="logo-img" src="Logotipo em GIF.gif" alt="Logo SofTech">
+      </a>
+    </div>
+    <nav class="main-nav" id="main-nav">
+      <a href="Home.html#sobre">Sobre</a>
+      <a href="CatalogoDeServicos.html">Serviços</a>
+      <a href="modelosdigitais.html" class="active">Modelos Digitais</a>
+      <a href="Home.html#faq">FAQ</a>
+      <a href="Home.html#contato">Contato</a>
+      <a href="admin/index.html">Login</a>
+    </nav>
+    <button class="hamburger" id="hamburger-menu">
+        <i class="fas fa-bars"></i>
+    </button>
+  </header>
+  <div class="container">
+    <main>
+      <section class="modelos-digitais-container fade-in-section">
+        <h2 class="section-title">Nossa Biblioteca de Modelos Digitais</h2>
+        <p class="intro-text">Economize tempo e garanta profissionalismo com nossos modelos de planilhas e documentos. Desenvolvidos para otimizar sua rotina pessoal e profissional. Baixe, edite e use imediatamente!</p>
+        
+        <div class="search-container">
+          <input type="search" id="search-modelos-input" placeholder="Buscar por nome ou palavra-chave..." autocomplete="off">
+        </div>
+        
+        <div class="modelos-grid" id="modelos-grid-container">
+            <p>Nenhum modelo digital disponível no momento. Volte em breve!</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <footer>
+    &copy; <span id="current-year"></span> SofTech Serviços e Tecnologia. Todos os direitos reservados.
+  </footer>
+
+  <button id="back-to-top-btn" title="Voltar ao Topo">
+      <i class="fas fa-arrow-up"></i>
+  </button>
+  <script src="Scripts/layout.js"></script>
+  <script src="Scripts/modelos.js"></script>
+</body>
+</html>

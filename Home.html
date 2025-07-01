@@ -1,198 +1,128 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SofTech Serviços e Tecnologia - Home</title>
-    
-    <!-- Caminhos de CSS corrigidos -->
-    <link rel="stylesheet" href="/Styles/main.css">
-    <link rel="stylesheet" href="/chatbot-gemini/style.css">
-
-    <style>
-      /* Seus estilos para os controles do chat estão perfeitos */
-      .chatbot-controls {
-        display: flex;
-        gap: 6px;
-        position: absolute;
-        right: 10px;
-        top: 8px;
-      }
-      .chatbot-control-btn {
-        width: 22px;
-        height: 22px;
-        border: none;
-        border-radius: 50%;
-        background: #eee;
-        color: #333;
-        cursor: pointer;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.2s;
-      }
-      .chatbot-control-btn:hover {
-        background: #ccc;
-      }
-      #chatbot-container.minimized #chat-body,
-      #chatbot-container.minimized #chat-input-container {
-        display: none;
-      }
-      #chatbot-container.maximized {
-        width: 400px !important;
-        height: 600px !important;
-        right: 30px !important;
-        bottom: 30px !important;
-        z-index: 9999;
-      }
-      #chatbot-container.closed {
-        display: none !important;
-      }
-      #chatbot-container {
-        position: fixed;
-        right: 30px;
-        bottom: 30px;
-        width: 320px;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-        z-index: 999;
-      }
-      #chat-reopen-icon {
-        position: fixed;
-        right: 30px;
-        bottom: 30px;
-        cursor: pointer;
-        display: none; /* Começa escondido */
-        z-index: 9998;
-        background-color: #007bff;
-        color: white;
-        border-radius: 50%;
-        padding: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      }
-    </style>
+    <link rel="icon" type="image/png" href="Logotipo em GIF.png">
+    <title>SofTech - Soluções em Tecnologia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/novo_layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-    <nav>
-      <ul>
-        <!-- Caminhos de navegação corrigidos -->
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="/Gerador de Orçamentos.html">Gerador de Orçamentos</a></li>
-        <li><a href="/CalculadoradeCopias.html">Calculadora de Cópias</a></li>
-        <li><a href="/CatalogoDeServicos.html">Catálogo de Serviços</a></li>
-      </ul>
-    </nav>
-
-    <header>
-        <!-- Caminho da imagem corrigido -->
-        <img src="/Logotipo em GIF.gif" alt="Logo da SofTech">
-        <h1>Bem-vindo à SofTech Serviços e Tecnologia</h1>
+    <header class="main-header">
+        <div class="logo-slider">
+            <a href="Home_novo.html">
+                <img id="logo-slide" class="logo-img" src="Logotipo em GIF.gif" alt="Logo SofTech">
+            </a>
+        </div>
+        <nav class="main-nav" id="main-nav">
+            <a href="#sobre">Sobre</a>
+            <a href="CatalogoDeServicos.html">Serviços</a>
+            <a href="modelosdigitais.html">Modelos Digitais</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contato">Contato</a>
+            <a href="admin/index.html">Login</a>
+        </nav>
+        <button class="hamburger" id="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </button>
     </header>
-
-    <main>
-        <section class="dashboard-container">
-            <div class="dashboard-grid">
-                <!-- Caminhos dos links e imagens corrigidos -->
-                <a href="/Gerador de Orçamentos.html" class="dashboard-item">
-                    <img src="/imagens/gerador-orcamentos.png" alt="Gerador de Orçamentos">
-                    <h3>Gerador de Orçamentos</h3>
-                </a>
-                <a href="/CalculadoradeCopias.html" class="dashboard-item">
-                    <img src="/imagens/calculadora-copias.png" alt="Calculadora de Cópias">
-                    <h3>Calculadora de Cópias</h3>
-                </a>
-                <a href="/CatalogoDeServicos.html" class="dashboard-item">
-                    <img src="/imagens/catalogo-servicos.png" alt="Catálogo de Serviços">
-                    <h3>Catálogo de Serviços</h3>
-                </a>
-            </div>
-        </section>
-        <section style="text-align:center; margin-top:2rem;">
-            <p>Conheça nossas soluções inovadoras em tecnologia, impressão, suporte e muito mais!</p>
-        </section>
-
-        <!-- Bloco do Chatbot -->
-        <div id="chatbot-container">
-            <div id="chat-header">
-                Assistente Virtual SofTech
-                <div class="chatbot-controls">
-                    <button class="chatbot-control-btn" id="chat-min-btn" title="Minimizar">–</button>
-                    <button class="chatbot-control-btn" id="chat-max-btn" title="Maximizar">☐</button>
-                    <button class="chatbot-control-btn" id="chat-close-btn" title="Fechar">×</button>
+    
+    <div class="container">
+        <section id="sobre" class="about-section fade-in-section">
+            <h2 class="section-title">Sobre Nós</h2>
+            <div class="about">
+                <img src="Logotipo Brasão.png" alt="Logo Brasão SofTech" class="about-img">
+                <div class="about-text">
+                    <h2>SofTech Serviços e Tecnologia</h2>
+                    <h3>Nossa Missão: Simplificar e Potencializar seu dia a dia com Tecnologia.</h3>
+                    <p>A <strong>SofTech</strong> nasceu para oferecer soluções tecnológicas práticas e eficientes para pessoas e pequenas empresas. Acreditamos que a tecnologia deve ser uma aliada, facilitando tarefas, otimizando o tempo e impulsionando resultados.</p>
+                    <p>Nosso compromisso é traduzir o "tecniquês" em soluções claras e acessíveis. Seja para resolver um problema no seu computador, criar uma presença online para seu negócio ou simplesmente para te ajudar com as burocracias digitais, estamos aqui para ajudar.</p>
+                    <p><strong>Somos a SofTech. E estamos aqui para simplificar sua vida digital.</strong></p>
                 </div>
             </div>
-            <div id="chat-body">
-                <div class="message bot">
-                    Olá! Sou o assistente da SofTech. Como posso te ajudar com nossos serviços?
+        </section>
+
+        <section id="servicos" class="services-section fade-in-section">
+            <h2 class="section-title">Nossos Principais Serviços</h2>
+            <div class="services">
+                <!-- Os 4 principais serviços serão inseridos aqui pelo script -->
+            </div>
+            <a href="CatalogoDeServicos.html" class="saiba-mais">Ver Catálogo Completo</a>
+        </section>
+
+        <section id="garantias" class="garantias-section fade-in-section">
+            <h2 class="section-title">Nossas Garantias</h2>
+            <div class="lista-garantias">
+                <div class="garantia-item">
+                    <h3>✔️ Atendimento Personalizado</h3>
+                    <p>Soluções pensadas para a sua necessidade real, com um atendimento direto e transparente.</p>
+                </div>
+                <div class="garantia-item">
+                    <h3>🔒 Segurança e Confiança</h3>
+                    <p>Tratamos seus dados e equipamentos com o máximo de sigilo e profissionalismo.</p>
+                </div>
+                <div class="garantia-item">
+                    <h3>💬 Suporte Eficiente</h3>
+                    <p>Fale diretamente com quem resolve. Sem intermediários, apenas soluções claras e eficientes.</p>
+                </div>
+                <div class="garantia-item">
+                    <h3>💰 Custo-Benefício Real</h3>
+                    <p>Qualidade e profissionalismo com preços justos e acessíveis para todos.</p>
                 </div>
             </div>
-            <div id="chat-input-container">
-                <input type="text" id="chat-input" placeholder="Digite sua mensagem..." autocomplete="off">
-                <button id="send-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg>
-                </button>
-            </div>
-        </div>
+        </section>
 
-        <!-- Ícone para reabrir o chat -->
-        <div id="chat-reopen-icon" title="Abrir Chat">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-        </div>
-    </main>
+        <section id="faq" class="faq-section fade-in-section">
+            <h2 class="section-title">Perguntas Frequentes (FAQ)</h2>
+            <div class="faq-container">
+                <details>
+                    <summary>Como funciona o suporte remoto?</summary>
+                    <p>Utilizamos ferramentas seguras para acessar seu computador com sua permissão e resolver problemas de software à distância. Você acompanha todo o processo na sua tela.</p>
+                </details>
+                <details>
+                    <summary>Vocês consertam problemas físicos no meu computador (hardware)?</summary>
+                    <p>Nosso foco é em software, sistemas e serviços digitais. Realizamos diagnósticos e upgrades (como instalação de SSD e RAM), mas não reparos eletrônicos complexos.</p>
+                </details>
+                <details>
+                    <summary>Como é feito o pagamento?</summary>
+                    <p>Aceitamos PIX e cartões. Para serviços, o pagamento é realizado após a conclusão. Para produtos, o pagamento é antecipado.</p>
+                </details>
+                <details>
+                    <summary>Em quanto tempo meu serviço é entregue?</summary>
+                    <p>A agilidade é nosso lema! Serviços rápidos como auxílio em portais são feitos na hora. Projetos maiores como sites têm o prazo combinado diretamente com você.</p>
+                </details>
+            </div>
+        </section>
+
+        <section id="contato" class="contact-section fade-in-section">
+            <h2 class="section-title">Fale Conosco</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-phone-alt"></i> <strong>Telefone:</strong> <a href="tel:93981154627">(93) 9 8115-4627</a></p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:softechservicosetecnologia@gmail.com">softechservicosetecnologia@gmail.com</a></p>
+                <p><i class="fab fa-whatsapp"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/5593981154627" target="_blank">Clique para conversar</a></p>
+            </div>
+            <form class="contact-form" autocomplete="off" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                <input type="text" id="nome" name="nome" placeholder="Seu Nome" required>
+                <input type="email" id="email" name="email" placeholder="Seu E-mail" required>
+                <textarea id="mensagem" name="mensagem" rows="5" placeholder="Sua Mensagem" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </div>
 
     <footer>
-        <p>© 2024 SofTech Serviços e Tecnologia.</p>
+        &copy; <span id="current-year"></span> SofTech Serviços e Tecnologia. Todos os direitos reservados.
     </footer>
 
-    <!-- Scripts carregados no final para melhor performance -->
+    <button id="back-to-top-btn" title="Voltar ao Topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
     
-    <!-- *** CORREÇÃO FINAL: INCLUSÃO DO SEU SCRIPT PRINCIPAL DO SITE *** -->
-    <script src="/Scripts/script.js" defer></script>
-    
-    <!-- Script do Chatbot -->
-    <script src="/chatbot-gemini/script.js" defer></script>
-
-    <!-- Script para os controles da janela do chatbot -->
-    <script defer>
-        document.addEventListener('DOMContentLoaded', () => {
-            const chatbot = document.getElementById('chatbot-container');
-            const chatMinBtn = document.getElementById('chat-min-btn');
-            const chatMaxBtn = document.getElementById('chat-max-btn');
-            const chatCloseBtn = document.getElementById('chat-close-btn');
-            const chatReopenIcon = document.getElementById('chat-reopen-icon');
-
-            if (chatMinBtn) {
-                chatMinBtn.onclick = () => {
-                    chatbot.classList.toggle('minimized');
-                    chatbot.classList.remove('maximized');
-                };
-            }
-
-            if (chatMaxBtn) {
-                chatMaxBtn.onclick = () => {
-                    chatbot.classList.toggle('maximized');
-                    chatbot.classList.remove('minimized');
-                };
-            }
-            
-            if (chatCloseBtn) {
-                chatCloseBtn.onclick = () => {
-                    chatbot.classList.add('closed');
-                    chatReopenIcon.style.display = 'block';
-                };
-            }
-
-            if (chatReopenIcon) {
-                chatReopenIcon.onclick = () => {
-                    chatbot.classList.remove('closed');
-                    chatReopenIcon.style.display = 'none';
-                };
-            }
-        });
-    </script>
+    <script src="Scripts/servicos.js"></script>
+    <script src="Scripts/layout.js"></script>
 </body>
 </html>

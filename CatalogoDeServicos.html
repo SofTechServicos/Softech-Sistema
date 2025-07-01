@@ -1,37 +1,95 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo de Serviços - SofTech Serviços e Tecnologia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="Styles/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="Logotipo em GIF.png">
+    <title>Catálogo de Serviços - SofTech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/novo_layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <header class="main-header">
+        <div class="logo-slider">
+            <a href="Home_novo.html">
+                <img id="logo-slide" class="logo-img" src="Logotipo em GIF.gif" alt="Logo SofTech">
+            </a>
+        </div>
+        <nav class="main-nav" id="main-nav">
+            <a href="Home.html#sobre">Sobre</a>
+            <a href="CatalogoDeServicos.html" class="active">Serviços</a>
+            <a href="modelosdigitais.html">Modelos Digitais</a>
+            <a href="Home.html#faq">FAQ</a>
+            <a href="Home_novo.html#contato">Contato</a>
+            <a href="admin/index.html">Login</a>
+        </nav>
+        <button class="hamburger" id="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+    
+    <div class="container">
+        <section id="catalogo-completo" class="catalogo-container fade-in-section">
+            <h2 class="section-title" style="justify-content: center;">Nosso Catálogo de Serviços</h2>
+            <div id="catalogo-grid" class="catalogo-grid">
+                <!-- As categorias e serviços serão inseridos aqui pelo script -->
+            </div>
+        </section>
+    </div>
 
-  <nav>
-    <ul>
-      <li><a href="Home.html">Home</a></li>
-      <li><a href="Gerador de Orçamentos.html">Gerador de Orçamentos</a></li>
-      <li><a href="CalculadoradeCopias.html">Calculadora de Cópias</a></li>
-      <li><a href="CatalogoDeServicos.html" class="active">Catálogo de Serviços</a></li>
-    </ul>
-  </nav>
+    <footer>
+        &copy; <span id="current-year"></span> SofTech Serviços e Tecnologia. Todos os direitos reservados.
+    </footer>
 
-  <header>
-    <img src="Logotipo em GIF.gif" alt="Logo da SofTech">
-    <h1>Catálogo de Serviços - SofTech Serviços e Tecnologia</h1>
-  </header>
+    <button id="back-to-top-btn" title="Voltar ao Topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script src="Scripts/servicos.js"></script>
+    <script src="Scripts/layout.js"></script>
+    <script>
+        // Script específico para a página de catálogo
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof servicos === 'undefined') {
+                console.error('A lista de serviços não foi carregada.');
+                return;
+            }
 
-  <main>
-    <section class="catalogo-container">
-      <h2>Serviços Disponíveis</h2>
-      <div class="catalogo-grid">
-        <!-- Os serviços serão inseridos dinamicamente pelo JavaScript -->
-      </div>
-    </section>
-  </main>
+            const catalogoGrid = document.getElementById('catalogo-grid');
+            const categorias = [...new Set(servicos.map(s => s.categoria))];
 
-  <script src="Scripts/catalogo.js"></script>
+            categorias.forEach(categoria => {
+                const categoriaContainer = document.createElement('div');
+                categoriaContainer.className = 'catalogo-categoria';
+
+                const titulo = document.createElement('h2');
+                titulo.textContent = categoria;
+                categoriaContainer.appendChild(titulo);
+
+                const slider = document.createElement('div');
+                slider.className = 'catalogo-slider';
+                
+                servicos.filter(s => s.categoria === categoria).forEach(servico => {
+                    const item = document.createElement('div');
+                    item.className = 'catalogo-item';
+                    item.innerHTML = `
+                        <img src="${servico.imagem}" alt="${servico.nome}" class="catalogo-imagem">
+                        <h3>${servico.nome}</h3>
+                        <p>${servico.descricao}</p>
+                        <div class="view-details">
+                            <span>${servico.valor ? 'R$ ' + servico.valor.toFixed(2).replace('.', ',') : 'Sob Consulta'}</span>
+                        </div>
+                    `;
+                    slider.appendChild(item);
+                });
+
+                categoriaContainer.appendChild(slider);
+                catalogoGrid.appendChild(categoriaContainer);
+            });
+        });
+    </script>
 </body>
 </html>
